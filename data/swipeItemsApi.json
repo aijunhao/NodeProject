@@ -1,27 +1,24 @@
 {
-    "swipeItems": {
-        "status": 0,
-        "message": [
-            {
-                "url": "1",
-                "img": "http://www.aijunhao.com.cn/images/1.jpg"
-            },
-            {
-                "url": "2",
-                "img": "http://www.aijunhao.com.cn/images/2.jpg"
-            },
-            {
-                "url": "3",
-                "img": "http://www.aijunhao.com.cn/images/3.jpg"
-            },
-            {
-                "url": "4",
-                "img": "http://www.aijunhao.com.cn/images/4.jpg"
-            },
-            {
-                "url": "5",
-                "img": "http://www.aijunhao.com.cn/images/5.jpg"
-            }
-        ]
-    }
+    "swipeItems": [
+        {
+            "url": "1",
+            "img": "http://www.aijunhao.com.cn/images/1.jpg"
+        },
+        {
+            "url": "2",
+            "img": "http://www.aijunhao.com.cn/images/2.jpg"
+        },
+        {
+            "url": "3",
+            "img": "http://www.aijunhao.com.cn/images/3.jpg"
+        },
+        {
+            "url": "4",
+            "img": "http://www.aijunhao.com.cn/images/4.jpg"
+        },
+        {
+            "url": "5",
+            "img": "http://www.aijunhao.com.cn/images/5.jpg"
+        }
+    ]
 }

@@ -1,34 +1,42 @@
 var express = require('express')
-var fs = require('fs')
-var path = require('path')
 var router = express.Router()
+var Db = require('./db.js')
 
 // 轮播图
-router.get('/swipeItems', (req, res) => {
-  fs.readFile(
-    path.join(__dirname, '/data/swipeItemsApi.json'),
-    'utf-8',
-    (err, data) => {
-      if (err) {
-        return console.log('读取错误')
-      }
+router.get('/swipeitems', (req, res) => {
+  Db.findSwipeItems((err, data) => {
+    if (!err) {
+      console.log('swipeitems 数据加载成功')
       res.send(data)
+    } else {
+      console.log('swipeitems 数据加载失败')
     }
-  )
+  })
 })
 
 // 新闻加载页面
-router.get('/newsList', (req, res) => {
-  fs.readFile(
-    path.join(__dirname, '/data/newsListApi.json'),
-    'utf-8',
-    (err, data) => {
-      if (err) {
-        return console.log('读取错误')
-      }
+router.get('/newslist', (req, res) => {
+  Db.findNewsList((err, data) => {
+    if (!err) {
+      console.log('newslist 数据加载成功')
       res.send(data)
+    } else {
+      console.log('newslist 数据加载失败')
     }
-  )
+  })
+})
+
+// 新闻内容页面
+router.get('/newsinfo/:id', (req, res) => {
+  console.log(req.params.id)
+  Db.findNewsInfoById(req.params.id, (err, data) => {
+    if (!err) {
+      console.log('newsinfo 数据加载成功')
+      res.send(data)
+    } else {
+      console.log('newsinfo 数据加载失败')
+    }
+  })
 })
 
 module.exports = router
