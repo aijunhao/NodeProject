@@ -4,7 +4,6 @@ var Schema = mongoose.Schema
 
 var NewsListSchema = new Schema({
   // {
-  //   "id": 1,
   //   "publishTime": "2019-03-29T14:17:45.886Z",
   //   "clickNumber": 1,
   //   "title": "睡觉",
@@ -12,10 +11,12 @@ var NewsListSchema = new Schema({
   //   "img_url": "http://www.aijunhao.com.cn/images/1.jpg"
   // }
   publishTime: {
-    type: String
+    type: Date,
+    default: Date.now
   },
   clickNumber: {
-    type: Number
+    type: Number,
+    default: 0
   },
   title: {
     type: String

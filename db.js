@@ -1,10 +1,11 @@
 var SwipeItem = require('./models/swipeItemSchema.js')
 var NewsList = require('./models/newsListSchema')
+var Comments = require('./models/commentSchema.js')
 
 exports.findSwipeItems = callback => {
   SwipeItem.find()
     .then(data => {
-    //   console.log(data)
+      //   console.log(data)
       return callback(null, data)
     })
     .catch(err => {
@@ -15,7 +16,7 @@ exports.findSwipeItems = callback => {
 exports.findNewsList = callback => {
   NewsList.find()
     .then(data => {
-    //   console.log(data)
+      //   console.log(data)
       return callback(null, data)
     })
     .catch(err => {
@@ -26,7 +27,23 @@ exports.findNewsList = callback => {
 exports.findNewsInfoById = (id, callback) => {
   NewsList.findById(id)
     .then(data => {
-    //   console.log(data)
+      //   console.log(data)
+      return callback(null, data)
+    })
+    .catch(err => {
+      return callback(err)
+    })
+}
+
+exports.findCommentsInfoById = (id, pageIndex, callback) => {
+  console.log('pageIndex', pageIndex)
+  var pageSize = 5
+  var skipCount = (pageIndex - 1) * pageSize
+  Comments.find({
+    publisherId: id
+  }).skip(skipCount).limit(pageSize).sort({ '_id': 1 })
+    .then(data => {
+      console.log(data)
       return callback(null, data)
     })
     .catch(err => {

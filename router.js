@@ -39,4 +39,15 @@ router.get('/newsinfo/:id', (req, res) => {
   })
 })
 
+// 新闻评论页面
+router.get('/getcomments/:id', (req, res) => {
+  Db.findCommentsInfoById(req.params.id, req.query.pageindex, (err, data) => {
+    if (!err) {
+      console.log('comments 数据加载成功')
+      res.send(data)
+    } else {
+      console.log('comments 数据加载失败')
+    }
+  })
+})
 module.exports = router
