@@ -23,3 +23,5 @@ swipeItemsApi.json 内容是 VueProject “首页” 的轮播图模拟数据接
 6. 修改 `router.js`，将原先的本地文件模拟数据修改成数据库获取数据，需要导入 `db.js` 文件
 
 7. 在 `data` 文件夹下创建 `newsListDbData.json` 和 `swipeItemsDbData.json` 文件，保存数据库拓本。
+
+## 完成发表评论的路由和数据库操作
