@@ -41,12 +41,28 @@ exports.findCommentsInfoById = (id, pageIndex, callback) => {
   var skipCount = (pageIndex - 1) * pageSize
   Comments.find({
     publisherId: id
-  }).skip(skipCount).limit(pageSize).sort({ '_id': 1 })
+  }).skip(skipCount).limit(pageSize).sort({ '_id': -1 })
     .then(data => {
       console.log(data)
       return callback(null, data)
     })
     .catch(err => {
+      return callback(err)
+    })
+}
+
+exports.publishComment = (artid, content, callback) => {
+  console.log(artid, content)
+  Comments({
+    publisherId: artid,
+    publishTime: new Date(),
+    content: content,
+    nickname: 'test'
+  }).save()
+    .then(data => {
+      console.log('数据保存数据库成功', data)
+      return callback(null, data)
+    }).catch(err => {
       return callback(err)
     })
 }

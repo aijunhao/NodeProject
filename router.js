@@ -1,6 +1,7 @@
 var express = require('express')
-var router = express.Router()
 var Db = require('./db.js')
+
+var router = express.Router()
 
 // 轮播图
 router.get('/swipeitems', (req, res) => {
@@ -50,4 +51,19 @@ router.get('/getcomments/:id', (req, res) => {
     }
   })
 })
+
+// 发表评论
+router.post('/postcomment', (req, res) => {
+  console.log(req.body.content, req.body.artid)
+  Db.publishComment(req.body.artid, req.body.content, (err, data) => {
+    if (!err) {
+      console.log('评论发表成功', data)
+      res.status(200).send('评论成功')
+    } else {
+      console.log('评论发表失败！', err)
+      res.status(500).send('服务器错误！请重试！')
+    }
+  })
+})
+
 module.exports = router

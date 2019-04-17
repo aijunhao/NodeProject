@@ -33,7 +33,7 @@ var CommentSchema = new Schema({
   },
   img_url: {
     type: String,
-    required: true
+    default: 'http://www.aijunhao.com.cn/images/2.jpg'
   }
 })
 
