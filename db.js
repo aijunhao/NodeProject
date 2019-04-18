@@ -1,6 +1,7 @@
 var SwipeItem = require('./models/swipeItemSchema.js')
 var NewsList = require('./models/newsListSchema')
 var Comments = require('./models/commentSchema.js')
+var PhotoList = require('./models/photoListSchema.js')
 
 exports.findSwipeItems = callback => {
   SwipeItem.find()
@@ -51,7 +52,7 @@ exports.findCommentsInfoById = (id, pageIndex, callback) => {
     })
 }
 
-exports.publishComment = (artid, content, callback) => {
+exports.addComment = (artid, content, callback) => {
   console.log(artid, content)
   Comments({
     publisherId: artid,
@@ -65,4 +66,15 @@ exports.publishComment = (artid, content, callback) => {
     }).catch(err => {
       return callback(err)
     })
+}
+
+exports.findPhotoListByCateId = (cateid, callback) => {
+  PhotoList.find({
+    cateId: cateid
+  }).then(data => {
+    console.log(data)
+    return callback(null, data)
+  }).catch(err => {
+    return callback(err)
+  })
 }
