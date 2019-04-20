@@ -2,7 +2,7 @@ var mongoose = require('../dbUtils.js')
 
 var Schema = mongoose.Schema
 
-var ImageSchema = new Schema({
+var PhotoListSchema = new Schema({
   // {
   //     "_id": "",
   //     "title": "清新美女图",
@@ -32,4 +32,4 @@ var ImageSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Image', ImageSchema)
+module.exports = mongoose.model('PhotoList', PhotoListSchema)

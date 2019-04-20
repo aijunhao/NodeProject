@@ -25,3 +25,7 @@ swipeItemsApi.json 内容是 VueProject “首页” 的轮播图模拟数据接
 7. 在 `data` 文件夹下创建 `newsListDbData.json` 和 `swipeItemsDbData.json` 文件，保存数据库拓本。
 
 ## 完成发表评论的路由和数据库操作
+
+## 添加基础数据库掉线重连机制
+
+失败之后重新连接一下即可，随便设置一下，不进一步来详细设置写代码。

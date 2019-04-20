@@ -47,7 +47,7 @@ router.get('/newsinfo/:id', (req, res) => {
 router.get('/getcomments/:id', (req, res) => {
   Db.findCommentsInfoById(req.params.id, req.query.pageindex, (err, data) => {
     if (!err) {
-      console.log('comments 数据加载成功')
+      console.log('comments 数据加载成功', data)
       res.status(200).send(data)
     } else {
       console.log('comments 数据加载失败')
@@ -78,6 +78,19 @@ router.get('/getphotolist/:cateid', (req, res) => {
       res.status(200).send(data)
     } else {
       console.log('photoList 加载失败', err)
+      res.status(500).send('服务器错误！请重试！')
+    }
+  })
+})
+
+router.get('/getphotoinfo/:photoid', (req, res) => {
+  console.log(req.params)
+  Db.findPhotoInfoById(req.params.photoid, (err, data) => {
+    if (!err) {
+      console.log('photoinfo 加载成功', data)
+      res.status(200).send(data)
+    } else {
+      console.log('photoinfo 加载失败', err)
       res.status(500).send('服务器错误！请重试！')
     }
   })

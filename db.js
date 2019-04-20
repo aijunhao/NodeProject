@@ -2,6 +2,8 @@ var SwipeItem = require('./models/swipeItemSchema.js')
 var NewsList = require('./models/newsListSchema')
 var Comments = require('./models/commentSchema.js')
 var PhotoList = require('./models/photoListSchema.js')
+var PhotoInfo = require('./models/PhotoInfoSchema.js')
+var mongoose = require('mongoose')
 
 exports.findSwipeItems = callback => {
   SwipeItem.find()
@@ -26,9 +28,10 @@ exports.findNewsList = callback => {
 }
 
 exports.findNewsInfoById = (id, callback) => {
-  NewsList.findById(id)
+  console.log(id)
+  NewsList.findById(mongoose.Types.ObjectId(id))
     .then(data => {
-      //   console.log(data)
+      console.log('data', data)
       return callback(null, data)
     })
     .catch(err => {
@@ -37,7 +40,7 @@ exports.findNewsInfoById = (id, callback) => {
 }
 
 exports.findCommentsInfoById = (id, pageIndex, callback) => {
-  console.log('pageIndex', pageIndex)
+  console.log('pageIndex 和 id', pageIndex, id)
   var pageSize = 5
   var skipCount = (pageIndex - 1) * pageSize
   Comments.find({
@@ -77,4 +80,15 @@ exports.findPhotoListByCateId = (cateid, callback) => {
   }).catch(err => {
     return callback(err)
   })
+}
+
+exports.findPhotoInfoById = (id, callback) => {
+  console.log('id', id)
+  PhotoInfo.findById(mongoose.Types.ObjectId(id))
+    .then(data => {
+      console.log(data)
+      return callback(null, data)
+    }).catch(err => {
+      return callback(err)
+    })
 }
