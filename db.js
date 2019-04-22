@@ -3,6 +3,7 @@ var NewsList = require('./models/newsListSchema')
 var Comments = require('./models/commentSchema.js')
 var PhotoList = require('./models/photoListSchema.js')
 var PhotoInfo = require('./models/PhotoInfoSchema.js')
+var Goods = require('./models/goodsSchema.js')
 var mongoose = require('mongoose')
 
 exports.findSwipeItems = callback => {
@@ -91,4 +92,16 @@ exports.findPhotoInfoById = (id, callback) => {
     }).catch(err => {
       return callback(err)
     })
+}
+
+exports.findGoodes = (pageIndex, callback) => {
+  var pageSize = 5
+  var skipCount = (pageIndex - 1) * pageSize
+  Goods.find().sort({ '_id': 1 }).skip(skipCount).limit(pageSize)
+  .then(data => {
+    console.log(data)
+    return callback(null, data)
+  }).catch(err => {
+    return callback(err)
+  })
 }

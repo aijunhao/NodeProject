@@ -96,4 +96,15 @@ router.get('/getphotoinfo/:photoid', (req, res) => {
   })
 })
 
+router.get('/getgoods', (req, res) => {
+  console.log(req.query.pageindex)
+  Db.findGoodes(req.query.pageindex, (err, data) => {
+    if (!err) {
+      res.status(200).send(data)
+    } else {
+      res.status(500).send('服务器错误！请重试！')
+    }
+  })
+})
+
 module.exports = router
