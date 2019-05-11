@@ -1,5 +1,35 @@
-{"_id":{"$oid":"5cb31d5da507a7902b9d7ece"},"url":"2","img":"./public/images/2.jpg"}
-{"_id":{"$oid":"5cb31d5da507a7902b9d7ecf"},"url":"3","img":"./public/images/3.jpg"}
-{"_id":{"$oid":"5cb31d5da507a7902b9d7ed0"},"url":"4","img":"./public/images/4.jpg"}
-{"_id":{"$oid":"5cb31d5da507a7902b9d7ed1"},"url":"5","img":"./public/images/5.jpg"}
-{"_id":{"$oid":"5cb31d5da507a7902b9d7ed2"},"url":"1","img":"./public/images/1.jpg"}
+{
+    "_id": {
+        "$oid": "5cb31d5da507a7902b9d7ece"
+    },
+    "url": "2",
+    "img": "public/images/2.jpg"
+}
+{
+    "_id": {
+        "$oid": "5cb31d5da507a7902b9d7ecf"
+    },
+    "url": "3",
+    "img": "public/images/3.jpg"
+}
+{
+    "_id": {
+        "$oid": "5cb31d5da507a7902b9d7ed0"
+    },
+    "url": "4",
+    "img": "public/images/4.jpg"
+}
+{
+    "_id": {
+        "$oid": "5cb31d5da507a7902b9d7ed1"
+    },
+    "url": "5",
+    "img": "public/images/5.jpg"
+}
+{
+    "_id": {
+        "$oid": "5cb31d5da507a7902b9d7ed2"
+    },
+    "url": "1",
+    "img": "public/images/1.jpg"
+}

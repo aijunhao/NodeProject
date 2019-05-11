@@ -1,4 +1,4 @@
-var mongoose = require('../dbUtils.js')
+var mongoose = require("mongoose")
 
 var Schema = mongoose.Schema
 
@@ -29,4 +29,4 @@ var NewsListSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('NewsList', NewsListSchema)
+module.exports = mongoose.model("NewsList", NewsListSchema)

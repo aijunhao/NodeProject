@@ -1,13 +1,15 @@
 var express = require('express')
-var Db = require('./db.js')
-
 var router = express.Router()
+var Db = require('./db.js')
 
 // 轮播图
 router.get('/swipeitems', (req, res) => {
   Db.findSwipeItems((err, data) => {
     if (!err) {
-      console.log('swipeitems 数据加载成功')
+      data.forEach(element => {
+        element.img = 'http://127.0.0.1:5000/' + element.img
+      })
+      // console.log('swipeitems 数据加载成功', data)
       res.status(200).send(data)
     } else {
       console.log('swipeitems 数据加载失败')
@@ -20,7 +22,10 @@ router.get('/swipeitems', (req, res) => {
 router.get('/newslist', (req, res) => {
   Db.findNewsList((err, data) => {
     if (!err) {
-      console.log('newslist 数据加载成功')
+      data.forEach(element => {
+        element.img_url = 'http://127.0.0.1:5000/' + element.img_url
+      })
+      // console.log('newslist 数据加载成功', data)
       res.status(200).send(data)
     } else {
       console.log('newslist 数据加载失败')
@@ -74,6 +79,9 @@ router.get('/getphotolist/:cateid', (req, res) => {
   console.log(req.params.cateid)
   Db.findPhotoListByCateId(req.params.cateid, (err, data) => {
     if (!err) {
+      data.forEach(element => {
+        element.img_url = 'http://127.0.0.1:5000/' + element.img_url
+      })
       console.log('photoList 加载成功', data)
       res.status(200).send(data)
     } else {
@@ -84,10 +92,10 @@ router.get('/getphotolist/:cateid', (req, res) => {
 })
 
 router.get('/getphotoinfo/:photoid', (req, res) => {
-  console.log(req.params)
+  // console.log(req.params)
   Db.findPhotoInfoById(req.params.photoid, (err, data) => {
     if (!err) {
-      console.log('photoinfo 加载成功', data)
+      console.log('photoinfo 加载成功', data.img_urls)
       res.status(200).send(data)
     } else {
       console.log('photoinfo 加载失败', err)
@@ -97,9 +105,13 @@ router.get('/getphotoinfo/:photoid', (req, res) => {
 })
 
 router.get('/getgoods', (req, res) => {
-  console.log(req.query.pageindex)
+  // console.log(req.query.pageindex)
   Db.findGoodes(req.query.pageindex, (err, data) => {
     if (!err) {
+      data.forEach(element => {
+        element.img_url = 'http://127.0.0.1:5000/' + element.img_url
+      })
+      // console.log(data)
       res.status(200).send(data)
     } else {
       res.status(500).send('服务器错误！请重试！')

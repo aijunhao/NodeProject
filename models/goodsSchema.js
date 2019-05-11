@@ -1,4 +1,4 @@
-var mongoose = require('../dbUtils.js')
+var mongoose = require("mongoose")
 
 var Schema = mongoose.Schema
 
@@ -35,7 +35,7 @@ var GoodsSchema = new Schema({
   },
   img_url: {
     type: String,
-    default: 'http://www.aijunhao.com.cn/images/2.jpg'
+    default: "http://www.aijunhao.com.cn/images/2.jpg"
   },
   sell_price: {
     type: Number,
@@ -49,4 +49,4 @@ var GoodsSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('GoodsList', GoodsSchema)
+module.exports = mongoose.model("GoodsList", GoodsSchema)

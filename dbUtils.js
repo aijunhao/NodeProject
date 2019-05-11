@@ -13,7 +13,9 @@ var db = mongoose.connection
 db.on('error', () => {
   console.log(dbUrl, ' 数据库连接失败！')
   // 失败重连
-  mongoose.connect(dbUrl)
+  time = setTimeout(() => {
+    mongoose.connect(dbUrl)
+  }, 2000)
 })
 
 db.once('open', function () {

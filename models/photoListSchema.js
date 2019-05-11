@@ -1,4 +1,4 @@
-var mongoose = require('../dbUtils.js')
+var mongoose = require("mongoose")
 
 var Schema = mongoose.Schema
 
@@ -28,8 +28,8 @@ var PhotoListSchema = new Schema({
   },
   img_url: {
     type: String,
-    default: 'http://www.aijunhao.com.cn/images/2.jpg'
+    default: "http://www.aijunhao.com.cn/images/2.jpg"
   }
 })
 
-module.exports = mongoose.model('PhotoList', PhotoListSchema)
+module.exports = mongoose.model("PhotoList", PhotoListSchema)

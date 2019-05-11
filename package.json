@@ -12,6 +12,7 @@
   "dependencies": {
     "blueimp-md5": "^2.10.0",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "jquery": "^3.4.0",

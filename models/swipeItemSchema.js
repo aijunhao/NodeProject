@@ -1,4 +1,5 @@
-var mongoose = require('../dbUtils.js')
+// var mongoose = require('../dbUtils.js')
+var mongoose = require('mongoose')
 
 var Schema = mongoose.Schema
 
